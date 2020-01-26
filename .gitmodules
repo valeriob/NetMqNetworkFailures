@@ -1,0 +1,8 @@
+[submodule "netmq"]
+	path = netmq
+	url = https://github.com/zeromq/netmq.git
+	branch = master
+[submodule "somdoron_netmq"]
+	path = somdoron_netmq
+	url = https://github.com/somdoron/netmq.git
+	branch = master
