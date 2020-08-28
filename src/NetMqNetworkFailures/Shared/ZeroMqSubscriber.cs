@@ -16,6 +16,8 @@ namespace OnRtls.ZeroMq
         {
             _topic = topic;
             _subSocket = new SubscriberSocket();
+            _subSocket.Options.HeartbeatInterval = TimeSpan.FromSeconds(1);
+            _subSocket.Options.HeartbeatTimeout = TimeSpan.FromMilliseconds(100);
         }
 
 

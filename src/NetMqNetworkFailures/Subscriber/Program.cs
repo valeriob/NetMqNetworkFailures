@@ -1,4 +1,6 @@
-﻿using OnRtls.ZeroMq;
+﻿using MessagePack;
+using OnRtls.ZeroMq;
+using Shared;
 using System;
 using System.Threading;
 
@@ -8,9 +10,9 @@ namespace NetMqTestClient
     {
         static void Main(string[] args)
         {
-            var pub = new ZeroMqConnectSubscriber("", "tcp://localhost:2020");
-            pub.Subscribe(Ricevuto);
-            pub.Start();
+            var sub = new ZeroMqConnectSubscriber("", "tcp://127.0.0.1:2020");
+            sub.Subscribe(Ricevuto);
+            sub.Start();
 
             Console.WriteLine("Subscribed");
          
@@ -20,7 +22,8 @@ namespace NetMqTestClient
 
         static void Ricevuto(string evnt, byte[] msg)
         {
-            Console.WriteLine($"{DateTime.Now.TimeOfDay} Msg Received");
+            var body = (MyObject)MessagePackSerializer.Typeless.Deserialize(msg);
+            Console.WriteLine($"{DateTime.Now.TimeOfDay} Msg Received {body.Tick}");
         }
     }
 }

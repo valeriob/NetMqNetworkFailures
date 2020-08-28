@@ -10,7 +10,7 @@ namespace Publisher
     {
         static void Main(string[] args)
         {
-            var pub = new ZeroMqBindCarrelliPublisher("tcp://localhost:2020");
+            var pub = new ZeroMqBindCarrelliPublisher("tcp://0.0.0.0:2020");
             pub.Start();
 
             Task.Factory.StartNew(async () =>

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\somdoron_netmq\src\NetMQ\NetMQ.csproj" />
+    <ProjectReference Include="..\..\..\netmq\src\NetMQ\NetMQ.csproj" />
   </ItemGroup>
 
 </Project>
